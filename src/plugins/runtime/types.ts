@@ -55,6 +55,7 @@ type ShouldHandleTextCommands =
   typeof import("../../auto-reply/commands-registry.js").shouldHandleTextCommands;
 type DispatchReplyFromConfig =
   typeof import("../../auto-reply/reply/dispatch-from-config.js").dispatchReplyFromConfig;
+type WithReplyDispatcher = typeof import("../../auto-reply/dispatch.js").withReplyDispatcher;
 type FinalizeInboundContext =
   typeof import("../../auto-reply/reply/inbound-context.js").finalizeInboundContext;
 type FormatAgentEnvelope = typeof import("../../auto-reply/envelope.js").formatAgentEnvelope;
@@ -120,6 +121,7 @@ type CollectTelegramUnmentionedGroupIds =
 type ProbeTelegram = typeof import("../../telegram/probe.js").probeTelegram;
 type ResolveTelegramToken = typeof import("../../telegram/token.js").resolveTelegramToken;
 type SendMessageTelegram = typeof import("../../telegram/send.js").sendMessageTelegram;
+type SendPollTelegram = typeof import("../../telegram/send.js").sendPollTelegram;
 type MonitorTelegramProvider = typeof import("../../telegram/monitor.js").monitorTelegramProvider;
 type TelegramMessageActions =
   typeof import("../../channels/plugins/actions/telegram.js").telegramMessageActions;
@@ -221,6 +223,7 @@ export type PluginRuntime = {
       resolveEffectiveMessagesConfig: ResolveEffectiveMessagesConfig;
       resolveHumanDelayConfig: ResolveHumanDelayConfig;
       dispatchReplyFromConfig: DispatchReplyFromConfig;
+      withReplyDispatcher: WithReplyDispatcher;
       finalizeInboundContext: FinalizeInboundContext;
       formatAgentEnvelope: FormatAgentEnvelope;
       /** @deprecated Prefer `BodyForAgent` + structured user-context blocks (do not build plaintext envelopes for prompts). */
@@ -301,6 +304,7 @@ export type PluginRuntime = {
       probeTelegram: ProbeTelegram;
       resolveTelegramToken: ResolveTelegramToken;
       sendMessageTelegram: SendMessageTelegram;
+      sendPollTelegram: SendPollTelegram;
       monitorTelegramProvider: MonitorTelegramProvider;
       messageActions: TelegramMessageActions;
     };
